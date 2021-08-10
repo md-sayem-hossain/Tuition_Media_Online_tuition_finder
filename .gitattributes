@@ -62,3 +62,4 @@
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
 *.html linguist-detectable=false
+*.* linguist-language=CSharf
