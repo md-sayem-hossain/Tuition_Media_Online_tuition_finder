@@ -1,0 +1,63 @@
+﻿@using TuitionMedia.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>test</title>
+</head>
+<body>
+    <div> 
+        @foreach (PostTable item in ViewBag.getallpost)
+        {
+
+            <div class="allpost-user">
+                <div class="post-user-info-text">
+                    <p>@item.PostTime</p>
+
+                </div>
+                <input type="submit" class="btn btn-primary" name="submit" value="Edit" onclick="location.href='@Url.Action("EditPost", "Tutor", new { id = @item.Id })'" />
+
+            </div>
+
+
+            <div class="post-box">
+                <table>
+                    <tr>
+                        <th>Salary</th>
+                        <td></td>
+                        <td>: @item.PostSalary </td>
+                    </tr>
+                    <tr>
+                        <th>Class</th>
+                        <td></td>
+                        <td>: @item.PostClass </td>
+                    </tr>
+                    <tr>
+                        <th>Institution</th>
+                        <td>&nbsp; &nbsp; &nbsp;</td>
+                        <td>: @item.PostInstitution </td>
+                    </tr>
+                    <tr>
+                        <th>Medium</th>
+                        <td></td>
+                        <td>: @item.PostMedium </td>
+                    </tr>
+                    <tr>
+                        <th>Subjects</th>
+                        <td></td>
+                        <td>: @item.PostSubject </td>
+                    </tr>
+
+
+                </table>
+
+            </div>
+        }
+    </div>
+</body>
+</html>

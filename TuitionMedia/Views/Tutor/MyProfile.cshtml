@@ -1,0 +1,827 @@
+﻿@using TuitionMedia.Models
+@{
+    Layout = null;
+    Registration profile = ViewBag.profile;
+    TuitionInfo tuitionInfo = new TuitionInfo();
+    if (ViewBag.tuitioninfo != null)
+    {
+        tuitionInfo = ViewBag.tuitioninfo;
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Media</title>
+
+    <link href="~/fonts/bootstrap/fontawesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/fonts/icomoon/style.css">
+    <link href="~/fonts/bootstrap/carosoul.min.css" rel="stylesheet" />
+    <link href="~/fonts/bootstrap/bootstrap-icon.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/fonts/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/navbar.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+
+
+    <style>
+        .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3 {
+            height: 43px;
+            padding-top: 10px;
+            text-align: center;
+            width: 43px;
+        }
+
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Images/99-997597_s.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 50%;
+            position: relative;
+        }
+
+        .hero-text {
+            color: white;
+            left: 50%;
+            position: absolute;
+            text-align: center;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+            .hero-text button {
+                background-color: #ddd;
+                border: none;
+                color: black;
+                cursor: pointer;
+                display: inline-block;
+                outline: 0;
+                padding: 10px 25px;
+                text-align: center;
+            }
+
+                .hero-text button:hover {
+                    background-color: #555;
+                    color: white;
+                }
+
+        .tab {
+            float: left;
+            height: auto;
+            /* border: 1px solid #ccc; */
+            /* background-color: #f1f1f1; */
+            width: 100%;
+        }
+
+            /* Style the buttons inside the tab */
+
+            .tab button {
+                background-color: inherit;
+                border: none;
+                border-radius: 7px;
+                color: #0e0c0c;
+                cursor: pointer;
+                display: block;
+                font-size: 17px;
+                outline: none;
+                padding: 22px 16px;
+                text-align: left;
+                transition: 0.3s;
+                width: 100%;
+            }
+
+                /* Change background color of buttons on hover */
+
+                .tab button:hover {
+                    background-color: #ddd;
+                }
+
+                /* Create an active/current "tab button" class */
+
+                .tab button.active {
+                    background-color: #4a3a82;
+                    box-shadow: 0 0 10px #0033ff45;
+                    color: white;
+                    font-weight: 600;
+                }
+
+        /* Style the tab content */
+
+        .tabcontent {
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #c2b6ffeb;
+            float: left;
+            height: auto;
+            margin-bottom: 100px;
+            padding: 0px 12px;
+            padding-bottom: 30px;
+            width: 100%;
+        }
+
+
+        .post-user-info img, .allpost-user img {
+            border-radius: 50%;
+            height: 60px;
+            object-fit: cover;
+            width: 60px;
+        }
+
+        .user-info h1 {
+            font-size: 20px;
+            margin-left: 10px;
+        }
+
+
+
+        .post-user-info {
+            align-items: center;
+            display: flex;
+            margin-right: 300px;
+        }
+
+        .Post-info {
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .profile-info {
+            margin: 20px;
+            margin-bottom: 100px;
+        }
+
+
+        .tuition-info {
+            margin: 20px;
+        }
+
+            .tuition-info table {
+                float: left;
+                margin-right: 10px;
+                width: 70%;
+            }
+
+            .tuition-info button {
+            }
+
+        div#createpost {
+            padding: 50px;
+            /* border: 1px solid #dbd9d9; */
+        }
+
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        div#createpost label {
+            font-weight: 700;
+        }
+
+        .post-user-info-text p {
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        .post-user-info-text h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+
+
+
+        .post-user-info-text {
+            margin-left: 20px;
+            margin-right: 300px;
+            margin-top: 20px;
+        }
+
+        .allpost-user {
+            align-items: center;
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+
+        div#mypost {
+            padding: 50px;
+        }
+
+        .post-box {
+            border-bottom: 1px solid black;
+            margin-bottom: 30px;
+            padding-bottom: 53px;
+        }
+
+
+        .btn-primary {
+            background: #4a3a82;
+            border-color: #4a3a82;
+            width: 80px;
+        }
+
+
+        a.nav-link.user-profile {
+            background-color: #4a3a82;
+            /* align-items: center; */
+            /* height: 30px; */
+            border-radius: 5px;
+            padding: 10px;
+            width: 100px;
+        }
+
+        .sticky-wrapper .site-navbar ul li.active a {
+            color: #f9f9f9;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .sticky-wrapper.is-sticky .site-navbar .site-navigation .site-menu > li.active a {
+            color: #ffffff;
+        }
+
+        .site-navbar {
+            background-color: white;
+            box-shadow: 0 0 10px #8267df59;
+            margin-bottom: 0px;
+            width: 100%;
+        }
+
+        .w-100 {
+            height: 620px;
+            object-fit: cover;
+            width: 100% !important;
+        }
+        .user-info h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 30px;
+            font-weight: 600;
+            margin: 30px 0 30px 0;
+        }
+        .post-user-info-1 img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+        .post-cards-1 {
+            margin-top: 100px;
+        }
+        .profile h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-top: 100px;
+        }
+        .Tuition-info {
+            margin-top: 100px;
+        }
+        .heading-tuition h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 100px;
+}
+        .tuition-info {
+            /* margin: 20px; */
+            margin-top: 20px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+            <div class="site-mobile-menu-close mt-3">
+                <span class="icon-close2 js-menu-toggle"></span>
+            </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu -->
+
+
+    <div class="site-navbar-wrap">
+        <div class="site-navbar site-navbar-target js-sticky-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-2">
+                        <h1 class="my-0 site-logo">
+                            <a href="index.html">
+                                <img src="~/Images/tuitionmedia22.png" alt="Alternate Text" />
+                            </a>
+                        </h1>
+                    </div>
+                    <div class="col-10">
+                        <nav class="site-navigation text-right" role="navigation">
+                            <div class="container">
+                                <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                                    <a href="#"
+                                       class="site-menu-toggle js-menu-toggle text-white">
+                                        <span class="icon-menu h3"></span>
+                                    </a>
+                                </div>
+
+                                <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                    <li class="">@Html.ActionLink("Index", "Index", "Tutor", new { @class = "nav-link" })</li>
+
+                                    <li class="">@Html.ActionLink("Newsfeed", "Newsfeed", "Tutor", new { @class = "nav-link" })</li>
+
+
+                                    <!-- <li class="has-children">
+                                        <a href="#gallery-section" class="nav-link">Gallery</a>
+                                        <ul class="dropdown arrow-top">
+                                            <li>
+                                                <a href="#" class="nav-link">Photos</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="nav-link">Videos</a>
+                                            </li>
+
+                                        </ul>
+                                    </li> -->
+                                    <li>
+                                        @Html.ActionLink("Teacher", "Teachers", "Tutor", new { @class = "nav-link" })
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("About", "aboutus", "Tutor", new { @class = "nav-link" })
+                                    </li>
+                                    <li>
+                                        <a href="#contact-section" class="nav-link">Contact</a>
+                                    </li>
+                                    <li style="cursor: pointer;">
+                                        <a onclick="location.href = '@Url.Action("Notification", "Tutor", new {@class = "nav-link onhover"})'">Notification(<span>@ViewBag.noticount</span>)</a>
+                                    </li>
+                                    @if (Session["user"] == null)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Login", "Tutor")" class="nav-link">
+
+                                                <button class="default-btn btn-active">
+                                                    Sign In
+                                                </button>
+                                            </a>
+                                            <a href="@Url.Action("Registration", "Tutor")" class="nav-link">
+                                                <button class="default-btn">
+                                                    Sign Up
+                                                </button>
+                                            </a>
+                                        </li>
+                                    }
+                                    else if (Session["user"] != null)
+                                    {
+                                          <li class="has-children">
+                                            <a href="#gallery-section" class="nav-link" style="color: #4b0082; font-weight: 600;">Profile</a>
+                                            <ul class="dropdown arrow-top">
+                                                <li>
+                                                    <a href="@Url.Action("MyProfile", "Tutor")" style="color: #4b0082; font-weight: 600;" class="nav-link">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("MyPost", "Tutor")" class="nav-link">My Post</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("CreatePost", "Tutor")" class="nav-link">Create Post</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ViewRequest", "Tutor")" class="nav-link">View Request</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Settings", "Tutor")" class="nav-link">Settings</a>
+                                                </li>
+                                            </ul>
+                                         </li>
+
+                                        <li>
+                                            <a href="@Url.Action("Logout", "Tutor")" class="nav-link" style="border: 1px solid #4a3a82; border-radius: 5px; font-weight: 600; padding: 8px;">Log Out</a>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 100px; font-weight: 700;">Profile</h1>
+            <p>Learn, search, hire from here</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="profile">
+                <label class="label">
+                    @if (ViewBag.message != null)
+                    {
+                        <span class="post-check">
+                            @ViewBag.PostMessage
+                        </span>
+                    }
+                </label>
+                <h2 align="center">Personal Information</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="posts-1">
+        <div class="post-cards-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="Post-info-1">
+                            <div class="post-user-info-1">
+                                <img src="/@profile.UserImage" alt="Alternate Text" height="100" width="100"/>
+                                <div class="user-info">
+
+                                    <h1>@profile.Name</h1>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                        </div>
+                        </div>
+
+                    <div class="col-md-6" style="top: 30px;">
+                        <div class="profile-info-1">
+
+
+                            <table>
+                                <tr>
+                                    <th>Name</th>
+                                    <td></td>
+                                    <td>: @profile.Name </td>
+                                </tr>
+                                <tr>
+                                    <th>E-mail</th>
+                                    <td></td>
+                                    <td>: @profile.Email </td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>&nbsp; &nbsp; &nbsp;</td>
+                                    <td>: @profile.Phone </td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td></td>
+                                    <td>: @profile.Gender </td>
+                                </tr>
+                                <tr>
+                                    <th>Institution</th>
+                                    <td></td>
+                                    <td>: @profile.Institution </td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td></td>
+                                    <td>: @profile.Address </td>
+                                </tr>
+
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <div class="row">
+                  @if (ViewBag.hastution == "Yes")
+{
+    <div class="col-md-12">
+
+        @if (@profile.AccountType.Equals("Teacher"))
+        {
+
+
+            <div class="Tuition-info">
+
+                <div class="heading-tuition">
+                    <h1 align="center">Tuition Information</h1>
+
+                </div>
+
+
+                <div class="tuition-info">
+
+
+                    <table>
+                        <tr>
+                            <th>Medium</th>
+                            <td></td>
+                            <td>: @tuitionInfo.Medium </td>
+                        </tr>
+                        <tr>
+                            <th>Prefered Location</th>
+                            <td></td>
+                            <td>: @tuitionInfo.Location </td>
+                        </tr>
+                        <tr>
+                            <th>Salary</th>
+                            <td>&nbsp; &nbsp; &nbsp;</td>
+                            <td>: @tuitionInfo.Salary </td>
+                        </tr>
+                        <tr>
+                            <th>Prefer Subjects</th>
+                            <td></td>
+                            <td>: @tuitionInfo.PreferSubject </td>
+                        </tr>
+
+
+                    </table>
+                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Edit</button>
+
+                </div>
+
+            </div>
+        }
+    </div>
+                        }
+       
+                        else if (ViewBag.hastution == "no")
+                        {
+                            <div class="col-md-12">
+                                <p> ... </p>
+                                </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="UpdateProfile" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Name</label>
+                            <input type="text" class="form-control" id="name" name="Name" value="@profile.Name ">
+                            <input type="hidden" class="form-control" id="id" name="Id" value="@profile.Id ">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">E-mail</label>
+                            <input type="text" class="form-control" id="email" name="Email" disabled="disabled" value="@profile.Email ">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="Phone" class="col-form-label">Phone</label>
+                            <input type="text" class="form-control" id="Phone" name="Phone" value="@profile.Phone ">
+                        </div>
+                        <div class="form-group">
+                            <label for="institution" class="col-form-label">Institution</label>
+                            <input type="text" class="form-control" id="institution" name="Institution" value="@profile.Institution ">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="Gender" class="form-control">
+
+                                <option value="male">Male</option>
+                                <option value="@profile.Gender" selected>@profile.Gender</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="Address" value="@profile.Address">
+                        </div>
+
+
+                        <div class="custom-file">
+                            <label class="form-label" for="UserImage">Image</label>
+                            <input type="file" class="form-control" id="UserImage" name="UserImage" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="UpdateTuition" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name" class="col-form-label">Medium</label>
+                            <input type="text" class="form-control" id="name" name="Medium" value="@tuitionInfo.Medium">
+                            <input type="hidden" class="form-control" id="id" name="Id" value="@tuitionInfo.Id ">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="Phone" class="col-form-label">Salary</label>
+                            <input type="text" class="form-control" id="Phone" name="Salary" value="@tuitionInfo.Salary ">
+                        </div>
+                        <div class="form-group">
+                            <label for="institution" class="col-form-label">Location</label>
+                            <input type="text" class="form-control" id="institution" name="Location" value="@tuitionInfo.Location ">
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="address" class="col-form-label">Subjects:</label> <br />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="checkbox" class="chkbx" name="Bangla" value="Bangla" /> Bangla <br />
+                                    <input type="checkbox" class="chkbx" name="English" value="English" /> English <br />
+                                    <input type="checkbox" class="chkbx" name="Math" value="Math" /> Math <br />
+                                    <input type="checkbox" class="chkbx" name="GeneralMath" value="GeneralMath" /> G.M <br />
+                                    <input type="checkbox" class="chkbx" name="ICT" value="ICT" /> ICT <br />
+                                    <input type="checkbox" class="chkbx" name="Chemistry" value="Chemistry" /> Chemistry <br />
+                                    <input type="checkbox" class="chkbx" name="Finance" value="Finance" /> Finance <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" class="chkbx" name="HigherMath" value="HigherMath" /> H.M <br />
+                                    <input type="checkbox" class="chkbx" name="Arts" value="Arts" /> Arts <br />
+                                    <input type="checkbox" class="chkbx" name="ComputerScience" value="ComputerScience" /> Computer Science <br />
+                                    <input type="checkbox" class="chkbx" name="Accounting" value="Accounting" /> Accounting <br />
+                                    <input type="checkbox" class="chkbx" name="Biology" value="Biology" /> Biology <br />
+                                    <input type="checkbox" class="chkbx" name="Sociology" value="Sociology" /> Sociology <br />
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="checkbox" class="chkbx" name="Economy" value="Economy" /> Economy <br />
+                                    <input type="checkbox" class="chkbx" name="History" value="History" /> History <br />
+                                    <input type="checkbox" class="chkbx" name="Statics" value="Statics" /> Statics <br />
+                                    <input type="checkbox" class="chkbx" name="Physics" value="Physics" /> Physics <br />
+                                    <input type="checkbox" class="chkbx" name="Civivs" value="Civivs" /> Civivs <br />
+
+                                </div>
+                            </div>
+
+
+                            <textarea class="form-control" id="prefersub" readonly name="PreferSubject">@tuitionInfo.PreferSubject</textarea>
+                        </div>
+
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+@(Html.Partial("Footer"))
+
+</html>
+
+
+<script src="~/Assets/js/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
+<script src="~/Assets/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+<script src="~/Assets/js/main.js"></script>
+
+
+<script>
+
+    $(document).ready(function () {
+        $(".chkbx").click(function () {
+
+            var te = "";
+            $(".chkbx:checked").each(function () {
+                te += $(this).val() + '. ';
+
+            });
+            te = te.substring(0, te.length - 1);
+            $('#prefersub').val(te);
+        });
+    });
+
+    $(document).ready(function () {
+        $(".classchkbx").click(function () {
+
+            var te = "";
+            $(".classchkbx:checked").each(function () {
+                te += $(this).val() + '. ';
+
+            });
+            te = te.substring(0, te.length - 1);
+            $('#preferclass').val(te);
+        });
+    });
+    $(document).ready(function () {
+        $(".cclasschkbx").click(function () {
+
+            var te = "";
+            $(".cclasschkbx:checked").each(function () {
+                te += $(this).val() + '. ';
+
+            });
+            te = te.substring(0, te.length - 1);
+            $('#cpreferclass').val(te);
+        });
+    });
+    $(document).ready(function () {
+        $(".postchkbx").click(function () {
+
+            var te = "";
+            $(".postchkbx:checked").each(function () {
+                te += $(this).val() + '. ';
+
+            });
+            te = te.substring(0, te.length - 1);
+            $('#postprefersub').val(te);
+        });
+    });
+    $(document).ready(function () {
+        $(".cpostchkbx").click(function () {
+
+            var te = "";
+            $(".cpostchkbx:checked").each(function () {
+                te += $(this).val() + '. ';
+
+            });
+            te = te.substring(0, te.length - 1);
+            $('#cpostprefersub').val(te);
+        });
+    });
+
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+
+
+    setTimeout(function () {
+        $(".post-check").fadeOut(1000);
+    }, 3000);
+
+</script>

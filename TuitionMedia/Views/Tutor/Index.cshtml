@@ -1,0 +1,621 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Media</title>
+
+    <link href="~/fonts/bootstrap/fontawesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/Assets/fonts/icomoon/style.css">
+    <link href="~/fonts/bootstrap/carosoul.min.css" rel="stylesheet" />
+    <link href="~/fonts/bootstrap/bootstrap-icon.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/fonts/bootstrap/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/Assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assets/css/navbar.css">
+    <link rel="stylesheet" href="~/Assets/css/style.css">
+    <style>
+        .tab {
+            float: left;
+            /* border: 1px solid #ccc; */
+            /* background-color: #f1f1f1; */
+            width: 100%;
+            height: auto;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab button {
+            display: block;
+            background-color: inherit;
+            color: #0e0c0c;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            outline: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+            border-radius: 7px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab button.active {
+            background-color: #4a3a82;
+            box-shadow: 0 0 10px #0033ff45;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            float: left;
+            padding: 0px 12px;
+            border: 1px solid #f0f0f0;
+            width: 100%;
+            height: auto;
+            margin-bottom: 100px;
+            padding-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #c2b6ffeb;
+        }
+
+
+        .post-user-info img, .allpost-user img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .user-info h1 {
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+
+
+        .post-user-info {
+            display: flex;
+            align-items: center;
+            margin-right: 300px;
+        }
+
+        .Post-info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .profile-info {
+            margin: 20px;
+            margin-bottom: 100px;
+        }
+
+
+        .tuition-info {
+            margin: 20px;
+        }
+
+        .tuition-info table {
+            float: left;
+            margin-right: 236px;
+        }
+
+        .tuition-info button {
+        }
+
+        div#createpost {
+            padding: 50px;
+            /* border: 1px solid #dbd9d9; */
+        }
+
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        div#createpost label {
+            font-weight: 700;
+        }
+
+        .post-user-info-text p {
+            font-size: 13px;
+            line-height: 1;
+        }
+
+        .post-user-info-text h1 {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+
+
+
+        .post-user-info-text {
+            margin-top: 20px;
+            margin-right: 300px;
+            margin-left: 20px;
+        }
+
+        .allpost-user {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+
+        div#mypost {
+            padding: 50px;
+        }
+
+        .post-box {
+            margin-bottom: 30px;
+            padding-bottom: 53px;
+            border-bottom: 1px solid black;
+        }
+
+
+        .btn-primary {
+            background: #4a3a82;
+            border-color: #4a3a82;
+            width: 80px;
+        }
+
+
+        a.nav-link.user-profile {
+            background-color: #4a3a82;
+            width: 100px;
+            /* align-items: center; */
+            /* height: 30px; */
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .sticky-wrapper .site-navbar ul li.active a {
+            color: #000;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .sticky-wrapper.is-sticky .site-navbar .site-navigation .site-menu > li.active a {
+            color: #000;
+        }
+
+        .site-navbar {
+            margin-bottom: 0px;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px #8267df59;
+        }
+
+        .w-100 {
+            width: 100% !important;
+            height: 620px;
+            object-fit: cover;
+        }
+
+
+        /*================================================================*/
+        .noti-box {
+            width: 100%;
+            background: #fafafa;
+            height: 400px;
+            box-shadow: 0 0 10px #c9daff;
+            padding: 5%;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 5px;
+            margin-bottom: 45px;
+        }
+        .bg-primary {
+            background-color: #4a3a82 !important;
+        }
+    </style>
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Images/99-997597_s.jpg");
+            height: 50%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+
+        .hero-text button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 10px 25px;
+            color: black;
+            background-color: #ddd;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        .user-body h3 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .post-body {
+            margin-bottom: 25px;
+        }
+
+        .post-body img {
+            border-radius: 50%;
+        }
+
+        .user-body p {
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .post-body {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-body {
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+
+        .aside-head h3, .search-head h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 35px;
+            margin-bottom: 25px;
+        }
+
+        .subject-body button {
+            border: 1px solid #c2bebe;
+            border-radius: 20px;
+            background: #aba7a7;
+            color: white;
+            /* height: 36px; */
+            margin: 3px;
+            font-weight: 600;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div> <!-- .site-mobile-menu -->
+
+
+<div class="site-navbar-wrap">
+    <div class="site-navbar site-navbar-target js-sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-2">
+                    <h1 class="my-0 site-logo">
+                        <a href="index.html">
+                            <img src="~/Images/tuitionmedia22.png" alt="Alternate Text" />
+                        </a>
+                    </h1>
+                </div>
+                <div class="col-10">
+                    <nav class="site-navigation text-right" role="navigation">
+                        <div class="container">
+                            <div class="d-inline-block d-lg-none ml-md-0 mr-auto py-3">
+                                <a href="#"
+                                   class="site-menu-toggle js-menu-toggle text-white">
+                                    <span class="icon-menu h3"></span>
+                                </a>
+                            </div>
+
+                            <ul class="site-menu main-menu js-clone-nav d-none d-lg-block">
+                                <li class="active">@Html.ActionLink("Index", "Index", "Tutor", new {@class = "nav-link"})</li>
+
+                                <li>@Html.ActionLink("Newsfeed", "Newsfeed", "Tutor", new {@class = "nav-link"})</li>
+
+
+                                <!-- <li class="has-children">
+                                    <a href="#gallery-section" class="nav-link">Gallery</a>
+                                    <ul class="dropdown arrow-top">
+                                        <li>
+                                            <a href="#" class="nav-link">Photos</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="nav-link">Videos</a>
+                                        </li>
+
+                                    </ul>
+                                </li> -->
+                                <li>
+                                   @Html.ActionLink("Teacher", "Teachers", "Tutor", new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                  @Html.ActionLink("About", "aboutus", "Tutor", new { @class = "nav-link" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Contact", "contact", "Tutor", new { @class = "nav-link" })
+                                </li>
+                                <li style="cursor: pointer;">
+                                    <a onclick="location.href='@Url.Action("Notification", "Tutor", new { @class = "nav-link onhover"})'">Notification(<span>@ViewBag.noticount</span>)</a>
+                                </li>
+
+                                @if (Session["user"] == null)
+                                {
+                                    <li>
+                                        <a href="@Url.Action("Login", "Tutor")" class="nav-link">
+
+                                            <button class="default-btn btn-active">
+                                                Sign In
+                                            </button>
+                                        </a>
+                                        <a href="@Url.Action("Registration", "Tutor")" class="nav-link">
+                                            <button class="default-btn">
+                                                Sign Up
+                                            </button>
+                                        </a>
+                                    </li>
+                                }
+                                 else if (Session["userId"] != null)
+                                    {
+                                        <li class="has-children">
+                                            <a href="#gallery-section" class="nav-link" style="color: #4b0082; font-weight: 600;">Profile</a>
+                                            <ul class="dropdown arrow-top">
+                                                <li>
+                                                    <a href="@Url.Action("MyProfile", "Tutor")" class="nav-link">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("MyPost", "Tutor")" class="nav-link">My Post</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("CreatePost", "Tutor")" class="nav-link">Create Post</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("ViewRequest", "Tutor")" class="nav-link">View Request</a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("Settings", "Tutor")" class="nav-link">Settings</a>
+                                                </li>
+                                            </ul>
+                                         </li>
+
+                                        <li>
+                                            <a href="@Url.Action("Logout", "Tutor")" class="nav-link" style="border: 1px solid #4a3a82; padding: 8px; font-weight: 600; border-radius: 5px;">Log Out</a>
+                                        </li>
+                                    }
+
+
+
+
+
+
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="hero-image">
+        <div class="hero-text">
+            <h1 style="font-size: 70px; font-weight: 600;">Welcome to tuition media</h1>
+            <p style="font-size: 20px; color: white;">Learn, search, hire from here</p>
+            <button>Learn More</button>
+        </div>
+    </div>
+
+
+
+    <style>
+        .feature.bg-primary.bg-gradient.text-white.rounded-3.mb-3 {
+            height: 43px;
+            width: 43px;
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+  
+    <!-- Features section-->
+<section class="py-5" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5">
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h2 class="fw-bolder mb-0">Best Online Education Expertise.</h2>
+                <img src="~/Images/istock-499343530.jpg" style="margin-top: 10px; width: 100%; object-fit: cover; height: 283px;" />
+            </div>
+            <div class="col-lg-8">
+                <div class="row gx-5 row-cols-1 row-cols-md-2">
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                            <i class="icon-collections_bookmark"></i>
+                        </div>
+                        <h2 class="h5">Learn with Expert</h2>
+                        <p class="mb-0">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts..
+                        </p>
+                    </div>
+                    <div class="col mb-5 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                            <i class="icon-building"></i>
+                        </div>
+                        <h2 class="h5">Active Class</h2>
+                        <p class="mb-0">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </p>
+                    </div>
+                    <div class="col mb-5 mb-md-0 h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                            <i class="icon-book"></i>
+                        </div>
+                        <h2 class="h5">Learning Center</h2>
+                        <p class="mb-0">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </p>
+                    </div>
+                    <div class="col h-100">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+                            <i class="icon-people"></i>
+                        </div>
+                        <h2 class="h5">Tomorrow's Leaders</h2>
+                        <p class="mb-0">
+                            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light" id="scroll-target">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 align-items-center">
+            <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="~/Images/learning.jpg" alt="..."/>
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fw-bolder">Our Servicing Methode</h2>
+                <p class="lead fw-normal text-muted mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+        <div class="container px-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-xxl-6">
+                    <div class="text-center my-5">
+                        <h1 class="fw-bolder mb-3">Our mission is to give the service for everyone.</h1>
+                        <p class="lead fw-normal text-muted mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto est, ut esse a labore aliquam beatae expedita. Blanditiis impedit numquam libero molestiae et fugit cupiditate, quibusdam expedita, maiores eaque quisquam.</p>
+                        <a class="btn btn-primary btn-lg" style="width: auto;" href="#scroll-target">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+    <section class="py-5">
+        <div class="container px-5">
+            <h1 class="fw-bolder fs-5 mb-4">Message From a teacher</h1>
+            <div class="card border-0 shadow rounded-3 overflow-hidden">
+                <div class="card-body p-0">
+                    <div class="row gx-0">
+                        <div class="col-lg-6 col-xl-5 py-lg-5">
+                            <div class="p-4 p-md-5">
+                                <div class="badge bg-primary bg-gradient rounded-pill mb-2">Message</div>
+                                <div class="h2 fw-bolder">Learning is the first thing you need to do</div>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique delectus ab doloremque, qui doloribus ea officiis...</p>
+                                <a class="stretched-link text-decoration-none" href="#!">
+                                    Read more
+                                    <i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xl-7">
+                            <style>
+                                .bg-featured-blog img{
+                                    margin-top: 60px;
+                                    width: 100%;
+                                    height: auto;
+                                }
+                            </style>
+                            <div class="bg-featured-blog">
+                                <img src="~/Images/learning2.jpg" alt="Alternate Text" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Testimonial section-->
+    <div class="py-5 bg-light">
+        <div class="container px-5 my-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-lg-10 col-xl-7">
+                    <div class="text-center">
+                        <div class="fs-4 mb-4 fst-italic">
+                            "After posting my learning requirement, I got a good tutor within 2 days. Excellent Service"
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img class="rounded-circle me-3" src="~/Images/images.jpg"
+                                 alt="..." />
+                            <div class="fw-bold">
+                                Tom Ato
+                                <span class="fw-bold text-primary mx-1">/</span>
+                              Student
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+   @(Html.Partial("Footer"))
+<script src="~/Assets/js/jquery-3.6.0.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
+<script src="~/Assets/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js"></script>
+<script src="~/Assets/js/main.js"></script>
+
+
+<script>
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+    });
+    $('.dropdown-toggle').dropdown();
+
+</script>
+</body>
+</html>
